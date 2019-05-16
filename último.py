@@ -1,6 +1,6 @@
 #LÊ OS DADOS DE ENTRADA
 import numpy as np
-import pandas as pd
+import matplotlib.pyplot as plt
 leitura = open('teste.txt','r')
 arquivo = leitura.readlines()
 nunp = int(arquivo[1])
@@ -10,6 +10,7 @@ for i in range(0,len(pl)):
     for j in range(0,len(pl[0])):
         pl[i][j] = pl[i][j].strip('\n')
         pl[i][j] = float(pl[i][j]) 
+leitura.close()
         
 def iteral(pl,count,dt):
     m_for = []
@@ -57,9 +58,41 @@ def iteral(pl,count,dt):
     count += 1
     return iteral(pl,count,dt)   
    
-a = iteral(pl,5,0.1)
-bibi = pd.Series(a[0], index = index)
-bibi.append(a[1])
+
+result = [[] for i in range(0,len(pl))]
+for i in range(0,len(pl)):
+    result[i].append(index)
+parada = 0
+passo = int(input('Digite o tamanho do passo: '))
+dt = float(input('Digite o tamanho do dt: '))
+periodo = int(input('Digite a quantidade de tempo em segundos: '))
+while parada < periodo:
+    a = iteral(pl,passo,dt)
+    for i in range(0,len(pl)):
+        result[i].append(a[i])
+    pl = a
+    parada += dt*passo
+    
+historico = open('historico.txt','w')
+for i in range(0,len(result)):
+    for j in range(0,len(result[0])):
+        historico.writelines(str(result[i][j]))
+        historico.write('\n')
+historico.close()
+
+#x = [result[0][i][1] for i in range(1,len(result[0]))]
+#y = [result[0][i][2] for i in range(1,len(result[0]))]
+#plt.plot(x,y,'r-')
+x = [result[1][i][1] for i in range(1,len(result[0]))]
+y = [result[1][i][2] for i in range(1,len(result[0]))]
+plt.plot(x,y)
+#x = [result[2][i][1] for i in range(1,len(result[0]))]
+#y = [result[2][i][2] for i in range(1,len(result[0]))]
+#plt.plot(x,y,'g-')
+plt.show()
+    
+    
+
 
 
 
