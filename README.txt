@@ -9,9 +9,11 @@ Este script tem como base a Lei da gravitação universal e o método de Euler.
 
 Foram utilizadas as bibliotecas Numpy e matplotlib.pyplot, caso não as tenha instaladas, faz-se necessária a instalação:
 
-pip install numpy
+python -m pip install -U pip
 
-pip install matplotlib.pyplot
+python -m pip install -U numpy
+
+python -m pip install -U matplotlib
 
 [ENTRADA DE DADOS]
 
