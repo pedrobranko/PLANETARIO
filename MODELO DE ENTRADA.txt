@@ -1,0 +1,18 @@
+número de planetas
+(n) """Valor inteiro, no caso deste exemplo, n = 3"""
+idPlaneta, x, y, z, v0x, v0y, v0z, raio, massa	"""PROPRIEDADES INICIAIS DOS PLANETAS, !!!SEPARADOS POR VÍRGULA!!!"""
+1, x, y, z, vx, vy, vz, raio, massa		
+2, x, y, z, vx, vy, vz, raio, massa
+3, x, y, z, vx, vy, vz, raio, massa
+CONTATO DEM """Valor da constante elástica de colisão""" 
+(n) """Valor inteiro, no caso deste exemplo, n = 2"""
+1, K1 """!!!SEPARADOS POR VÍRGULA!!!"""
+2, K2
+CONTATO ITERAÇÃO """Matriz com os índices do valor da constante elástica dada anteriormente""" 
+1 2 2  """!!!SEPARADOS POR ESPAÇO!!!"""
+2 1 1
+2 1 1
+PARAMETRO DE TEMPO """[Tamanho do passo], [Variação de tempo entre cada cálculo] e [Tempo todal a ser calculado]
+100, 0.1, 2000000 """!!!SEPARADOS POR VÍRGULA!!!"""
+
+-Seguem junto ao Main dois arquivos testes, uma colisão e uma orbita de dois planetas sobre um terceiro.
